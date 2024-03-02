@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Sidebar Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Montserrat;
+    }
+</style>
+
+<body class="bg-slate-300">
+
+    <section class="max-h-full">
+        <div class="text-lg cursor-point">
+
+            <!--- Hamburger --->
+            <div class="mb-3 text-2xl pl-3 pt-3 cursor-pointer">
+                <i id="bar" class="fa-solid fa-bars-staggered"></i>
+            </div>
+
+            <!--- Side Navbar --->
+            <aside id="sideBar" class="bg-white fixed h-[100vh] w-[180px] top-0 pl-3 z-10 left-[-200px]">
+                <div>
+                    <div class="ml-[140px] text-2xl">
+                        <i id="close" class="fa-solid fa-xmark cursor-pointer"></i>
+                    </div>
+
+                    <img
+                    class="w-[30%] mb-5"
+                    src="https://glints.com/id/lowongan/wp-content/uploads/2020/08/logo4.png">
+
+                    <ul class="leading-loose cursor-pointer">
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Blog</li>
+                        <li>Contact</li>
+                        <li>Our Products</li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-between mt-[50%] pr-3 cursor-pointer">
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+</body>
+
+<script>
+    const openBar = document.getElementById("bar");
+    const closeBar = document.getElementById("close");
+    const sideBar = document.getElementById("sideBar");
+
+    openBar.addEventListener('click', function () {
+        sideBar.style.left = "0px"
+        sideBar.style.transition = "1s"
+    });
+
+    closeBar.addEventListener('click', function () {
+        sideBar.style.left = "-200px"
+        sideBar.style.transition = "1s"
+    })
+</script>
+
+</html>

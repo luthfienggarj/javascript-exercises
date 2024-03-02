@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Javascript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+</style>
+
+<body>
+    <section>
+        <h4 class="text-center mb-6 text-4xl border-b-4 border-indigo-200 border-b-indigo-500 ">
+            <i class="fa-solid fa-dice text-[#81B29A] mb-1"></i>
+            Dice JavaScript
+        </h4>
+
+        <div class="text-center items-center">
+            <p id="outputDice" class="border-solid border-2 border-[#0c0c0f] 
+            rounded-lg mb-8 w-full h-8 text-center items-center"></p>
+
+            <div class="flex gap-2">
+                <!--Button Roll Dice-->
+                <button onclick="rollDice()"
+                    class="border-solid border-2 bg-[#E9C46A] outline-none p-1 w-[50%] rounded-xl">
+                    Roll Dice !
+                </button>
+
+                <!--Button Reset-->
+                <button onclick="reset()"
+                    class="border-solid border-2 bg-[#003554] outline-none p-1 w-[50%] rounded-xl text-[#F4F1DE]">
+                    Reset
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    let numDisplay = document.getElementById("outputDice");
+
+    function diceRandom(min, max) {
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
+
+    function rollDice() {
+        let result = diceRandom(1, 6);
+        numDisplay.textContent = result
+    }
+
+    function reset() {
+        let resetNum = rollDice(0);
+        numDisplay.textContent = resetNum
+    }
+</script>
+
+</html>

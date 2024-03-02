@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increament & Decreament</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        font-family: fantasy;
+        box-sizing: border-box;
+    }
+
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+
+    .modal {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        text-align: center;
+        width: 20%;
+        background: #1DB954;
+        padding: 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    @media(max-width: 1020px) {
+        .modal {
+            width: 70%;
+        }
+    }
+
+    .modal::backdrop {
+        background: lightgray;
+        opacity: .8;
+    }
+</style>
+
+<body>
+
+    <section>
+        <div class="main">
+            <h3 class="text-center mb-4 text-xl">Increament & Decreament Javascript</h3>
+            <p id="num" class="border-4 border-indigo-500/50 rounded-lg h-10 text-center text-2xl">
+                0
+            </p>
+            <p id="status" class="text-center text-red-600 hidden">
+                <i class="fa-solid fa-triangle-exclamation mr-2"></i>
+                Maksimal 10 Barang
+            </p>
+
+            <!-- Two Buttons -->
+            <div class="flex mt-7 gap-2 mb-5">
+                <!-- Increament -->
+                <button id="incre" onclick="increament()"
+                    class="bg-[#E48F45] rounded-lg p-2 text-white w-full col-start-1 col-end-2 row-start-1 row-end-2">
+                    Increament
+                </button>
+
+                <!-- Decreament -->
+                <button onclick="decreament()"
+                    class="bg-[#2B2A4C] rounded-lg p-2 text-white w-full col-start-2 col-end-3 row-start-1 row-end-2">
+                    Decreament
+                </button>
+
+            </div>
+
+            <div class="flex gap-2">
+                <!-- Reset Button -->
+                <button onclick="reset()" class="bg-[#EEE2DE] rounded-lg p-2 text-black w-full ">
+                    Reset
+                </button>
+
+                <!-- Send Button -->
+                <button id="save" class="bg-[#1DB954] rounded-lg p-2 w-6/12 text-white font-bold">
+                    Kirim
+                </button>
+            </div>
+
+            <!-- Modal -->
+            <dialog id="dialog" class="modal">
+                <i class="fa-solid fa-circle-check text-4xl mb-3"></i>
+                <p>Data Terbaru Disimpan !</p>
+                <button id="close" class="bg-[#480ca8] rounded-lg p-2 w-full mt-3">Jelajahi Beranda</button>
+            </dialog>
+        </div>
+    </section>
+
+</body>
+
+<script>
+    let number = document.getElementById("num");
+    let warning = document.getElementById("status");
+    let incre = document.getElementById("incre");
+    let currentValue = 0;
+
+    let mainModal = document.getElementById("dialog");
+    let saveModal = document.getElementById("save");
+    let closeBtn = document.getElementById("close");
+
+
+    function increament() {
+
+        if (currentValue <= 10) {
+            currentValue++
+            number.textContent = currentValue
+        }
+
+        if (currentValue === 10) {
+            incre.disabled = true
+            incre.style.cursor = "disable"
+            incre.style.background = "gray"
+            warning.style.display = "inline-block"
+        }
+    }
+
+    function decreament() {
+        currentValue--
+        number.textContent = currentValue
+
+        if (currentValue < 10) {
+            incre.disabled = false
+            incre.style.cursor = "pointer"
+            incre.style.background = "#E48F45"
+            warning.style.display = "none"
+        }
+    }
+
+    function reset() {
+
+        currentValue = 0
+        number.textContent = currentValue
+        if (currentValue < 10) {
+            incre.disabled = false
+            incre.style.cursor = "pointer"
+            incre.style.background = "#E48F45"
+            warning.style.display = "none"
+        }
+    }
+
+    saveModal.addEventListener('click', () => {
+        mainModal.showModal()
+        mainModal.style.transition = "ease-in-out 0.5s"
+        console.log(currentValue);
+    })
+
+    closeBtn.addEventListener('click', () => {
+        mainModal.close()
+    })
+</script>
+
+</html>

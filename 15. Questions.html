@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Open & Close</title>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+
+    <!--- Dancing Script Font --->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Montserrat:wght@200;400;600&display=swap"
+        rel="stylesheet">
+
+    <!--- Crimson Text Font --->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@200;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    section {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        max-width: 1200px;
+    }
+
+    h2 {
+        font-family: Dancing Script;
+        color: orange;
+        margin-bottom: 20px;
+        text-align: center;
+        font-size: xx-large;
+    }
+
+    .main {
+        font-family: Crimson Text;
+    }
+
+    .sub {
+        margin-bottom: 15px;
+        padding: 14px 10px;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        cursor: pointer;
+    }
+
+    /* --- Kunci Agar Bisa Terbuka --- */
+    .sub.active .answer {
+        max-height: 200px;
+        overflow: visible;
+        transition: ease-in 0.5s;
+    }
+
+    /* --- Kunci Agar Bisa Tertutup --- */
+    .answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: ease-in 0.3s;
+    }
+
+    .question {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    /* --- Kunci Durasi Keatas --- */
+    .fa-solid {
+        margin-left: 5px;
+        font-size: 20px;
+        transition: ease-in 0.3s;
+    }
+
+    /* --- Kunci Agar Bisa Rotate --- */
+    .sub.active .fa-solid{
+        transform: rotate(180deg);
+        transition: ease-in 0.5s;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h6 {
+        border: 1px solid #A9A9A9;
+        margin-bottom: 5px;
+    }
+</style>
+
+<body>
+    <section>
+        <h2>Questions About Us</h2>
+
+        <!--- Main Container --->
+        <div class="main">
+
+            <!--- Sub Container --->
+            <div class="sub">
+                <div class="question">
+                    <h3>Do I Need React Js Skill ?</h3>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+
+                <div class="answer">
+                    <h6></h6>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, totam? Lorem ipsum dolor
+                        sit amet consectetur adipisicing elit. Fugit ipsa eligendi iure repellat</p>
+                </div>
+            </div>
+
+            <!--- Sub Container --->
+            <div class="sub">
+                <div class="question">
+                    <h3>Do You Should Learn React Js</h3>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+
+                <div class="answer">
+                    <h6></h6>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, totam? Lorem ipsum dolor
+                        sit amet consectetur adipisicing elit. Fugit ipsa eligendi iure repellat</p>
+                </div>
+            </div>
+
+            <!--- Sub Container --->
+            <div class="sub">
+                <div class="question">
+                    <h3>Best Framework</h3>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+
+                <div class="answer">
+                    <h6></h6>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit, totam? Lorem ipsum dolor
+                        sit amet consectetur adipisicing elit. Fugit ipsa eligendi iure repellat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    const sub = document.querySelectorAll(".sub");
+
+    sub.forEach(faq => {
+        faq.addEventListener('click', () => {
+            faq.classList.toggle("active")
+        })
+    })
+</script>
+
+</html>

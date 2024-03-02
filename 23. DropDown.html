@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Down Menus</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Afacad', sans-serif;
+    }
+
+    body {
+        background: #D2E0FB;
+    }
+
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+</style>
+
+<body>
+
+    <section class="max-w-[1200px]">
+        <div>
+            <div id="menus" class="text-xl p-2 bg-[#F0F0F0] rounded-md w-full flex justify-evenly gap-20 font-semibold cursor-pointer">
+                <span>Social Media</span>
+                <span id="chevron"><i class="fa-solid fa-chevron-down"></i></span>
+            </div>
+
+            <div id="social-media" class="invisible text-xl p-1 bg-[#F0F0F0] rounded-md w-full font-semibold cursor-pointer mt-5">
+                <ul class="leading-[50px]">
+                    <li class="p-2 hover:bg-[#64CCC5] rounded-md">
+                        <div class="hover:transition-transform ease-in-out transform hover:translate-x-2">
+                            <i class="fa-brands fa-facebook mr-2 text-blue-700"></i>
+                            <span class="font-thin">Facebook</span>
+                        </div>
+                    </li>
+
+                    <li class="p-2 hover:bg-[#64CCC5] rounded-md">
+                        <div class="hover:transition-transform ease-in-out transform hover:translate-x-2">
+                            <i class="fa-brands fa-youtube mr-2 text-red-600"></i>
+                            <span class="font-thin">YouTube</span>
+                        </div>
+                    </li>
+
+                    <li class="p-2 hover:bg-[#64CCC5] rounded-md">
+                        <div class="hover:transition-transform ease-in-out transform hover:translate-x-2">
+                            <i class="fa-brands fa-twitter mr-2 text-sky-600"></i>
+                            <span class="font-thin">Twitter</span>
+                        </div>
+                    </li>
+
+                    <li class="p-2 hover:bg-[#64CCC5] rounded-md">
+                        <div class="hover:transition-transform ease-in-out transform hover:translate-x-2">
+                            <i class="fa-brands fa-linkedin mr-2 text-sky-700"></i>
+                            <span class="font-thin">LinkedIn</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    const menus = document.getElementById("menus");
+    const chevron = document.getElementById("chevron");
+    const social = document.getElementById("social-media");
+    let isOpen = false
+
+    menus.addEventListener("click", function () {
+        if (isOpen) {
+            social.style.visibility = "visible"
+            chevron.style.rotate = "180deg"
+        } else {
+            social.style.visibility = "hidden"
+            chevron.style.rotate = "0deg"
+        }
+        isOpen = !isOpen
+    })
+</script>
+
+</html>

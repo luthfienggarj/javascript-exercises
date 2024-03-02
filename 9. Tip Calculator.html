@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        border: 2px solid #000;
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+<body>
+    <section>
+        <h1 class="text-xl font-semibold mb-10 text-center">Tip Calculator</h1>
+
+        <div class="p-1">
+            <form>
+                <h6 class="mb-5">Billing</h6>
+                <input
+                id="billing"
+                type="number"
+                class="mb-5 outline outline-offset-1 outline-1">
+
+                <h6 class="mb-5">Tip For Walee Market</h6>
+                <input 
+                id="tip"
+                type="number"
+                class="mb-5 outline outline-offset-1 outline-1">
+
+            </form>
+
+            <button onclick="calculate()" class="bg-[#1DB954] text-center text-white w-full">
+                Calculate
+            </button>
+
+            <h6>Total : <span id="total" class="font-bold"></span></h6>
+            
+        </div>
+    </section>
+</body>
+
+<script>
+    let billing = document.getElementById("billing");
+    let tip = document.getElementById("tip");
+    let total = document.getElementById("total");
+
+    function calculate() {
+        const bill = parseFloat(billing.value);
+        const tipp = parseFloat(tip.value);
+        
+        const result = bill + tipp
+        total.textContent = `Rp. ${result}`
+    }
+</script>
+</html>

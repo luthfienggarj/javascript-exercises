@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Character</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Afacad', sans-serif;
+    }
+
+    body {
+        background: #B0578D;
+    }
+
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+</style>
+
+
+<body>
+
+    <section>
+        <div class="border-2 border-solid border-orange-900 rounded-md p-8 bg-orange-900">
+            <h1 class="text-4xl font-extrabold text-[#EEC759] text-left mb-6">Real-time Charater Counter</h1>
+
+            <div class="mb-5">
+                <textarea id="textarea" cols="50" rows="10" placeholder="Please write your text here..." maxlength="50"
+                    class="outline outline-4 outline-offset-2 outline-yellow-400 rounded-sm p-2">
+                </textarea>
+            </div>
+
+            <div class="text-yellow-400 text-xl font-semibold flex justify-between">
+                <span>
+                    Total Charaters:
+                    <span id="total" class="text-sky-600">0</span>
+                </span>
+                <span>
+                    Character Remaining:
+                    <span id="remaining" class="text-red-500">50</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<script>
+    const textArea = document.getElementById("textarea");
+    const totalCharacter = document.getElementById("total");
+    const remainingCharacter = document.getElementById("remaining");
+
+    textArea.addEventListener("keyup", function () {
+        Counting();
+    })
+
+    function Counting() {
+        totalCharacter.textContent = textArea.value.length
+        remainingCharacter.textContent = textArea.getAttribute("maxlength") - textArea.value.length
+    }
+
+/* Script Lainnya
+
+const textArea = document.getElementById("textarea");
+const totalCharacter = document.getElementById("total");
+const remainingCharacter = document.getElementById("remaining");
+
+textArea.addEventListener("input", Counting);
+
+function Counting() {
+    const maxLength = textArea.getAttribute("maxlength");
+    const currentLength = textArea.value.length;
+
+    totalCharacter.textContent = currentLength;
+    remainingCharacter.textContent = maxLength - currentLength;
+}
+ */
+</script>
+
+</html>

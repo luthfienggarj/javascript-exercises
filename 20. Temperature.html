@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temparature Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;1,400&display=swap"rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Afacad', sans-serif;
+    }
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+</style>
+
+<body>
+
+    <section>
+        <h1 class="text-center text-2xl mb-5 text-[#5F0F40] font-extrabold">
+            Real-Time Temparature <br> 
+            <span class="text-[#FB8B24]">Converter</span>
+        </h1>
+
+        <div class="max-w-[1000px] block text-xl">
+
+            <div class="mb-5">
+                <form>
+                    <label class="text-2xl font-medium text-[#5F0F40]">Fahrenheit : </label>
+                    <input 
+                    id="fahren"
+                    type="number"
+                    onchange="fahrenheitConvert(this.value)"
+                    oninput="fahrenheitConvert(this.value)"
+                    placeholder="Fahrenheit"
+                    class="w-full outline outline-offset-2 outline-1 rounded-sm outline-[#FB8B24]">
+                </form>
+            </div>
+
+            <div class="mb-5">
+                <form>
+                    <label class="text-2xl font-medium text-[#5F0F40]">Kelvin : </label>
+                    <input 
+                    id="kelv"
+                    type="number"
+                    onchange="kelvinConvert(this.value)"
+                    oninput="kelvinConvert(this.value)"
+                    placeholder="Kelvin"
+                    class="w-full outline outline-offset-2 outline-1 rounded-sm outline-[#FB8B24]">
+                </form>
+            </div>
+
+            <div class="mb-5">
+                <form>
+                    <label class="text-2xl font-medium text-[#5F0F40]">Celcius : </label>
+                    <input 
+                    id="celc"
+                    type="number"
+                    onchange="celciusConvert(this.value)"
+                    oninput="celciusConvert(this.value)"
+                    placeholder="Celcius"
+                    class="w-full outline outline-offset-2 outline-1 rounded-sm outline-[#FB8B24]">
+                </form>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+<script>
+    const fahrenheit = document.getElementById("fahren");
+    const kelvin = document.getElementById("kelv");
+    const celcius = document.getElementById("celc");
+
+    // Fahrenheit = Celcius & Kelvin
+    function fahrenheitConvert(valNum) {
+        valNum = parseFloat(valNum);
+        kelvin.value = ((valNum - 32) * (5 / 9) + 273.15).toFixed(2);
+        celcius.value = ((valNum - 32) * (5 / 9)).toFixed(2);
+    }
+
+    // Kelvin = Celcius & Fahrenheit
+    function kelvinConvert(valNum) {
+        valNum = parseFloat(valNum);
+        celcius.value = ((valNum - 273.15)).toFixed(2);
+        fahrenheit.value = ((valNum - 273.15) * 9/5 + 32).toFixed(2);
+    }
+    
+    // Celcius = Kelvin & Fahrenheit
+    function celciusConvert(valNum) {
+        valNum = parseFloat(valNum);
+        kelvin.value = ((valNum + 273.15)).toFixed(2);
+        fahrenheit.value = ((valNum * 9/5) + 32).toFixed(2);
+    }
+
+</script>
+
+</html>

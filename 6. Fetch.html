@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+</head>
+
+<body>
+    <table id="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function API() {
+            fetch("https://api.mockaroo.com/api/30d64260?count=2&key=8d282330")
+                .then(response => response.json())
+                .then(data => {
+
+                    // Get Element
+                    const table = document.getElementById("table");
+
+                    data.map(item => {
+                        
+                        // Focused
+                        const firstName = item.first_name;
+                        const lastName = item.last_name;
+
+                        // Making Row for Looping
+                        const row = document.createElement("tr");
+                        const num = document.createElement("td")
+                        const Fname = document.createElement("td");
+                        const Lname = document.createElement("td");
+
+                        // Implementation
+                        Fname.textContent = firstName;
+                        Lname.textContent = lastName;
+
+                        // Append Child Row
+                        row.appendChild(Fname);
+                        row.appendChild(Lname);
+
+                        // Append Child Table
+                        table.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.log("API ERROR !", error);
+                })
+        }
+        API();
+    </script>
+</body>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        text-align: center;
+        padding: 5px;
+    }
+</style>
+
+</html>

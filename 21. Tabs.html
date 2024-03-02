@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--- Catatan Penting
+    1. Memiliki Tabs Container, 3 Button dengan class yang sama & 3 Artikel dengan class yang sama.
+    2. Pada Button & Artikel pertama harus memiliki tambahan class seperti first.
+    3. Memiliki data-id setiap button class dan dimasukan di id artikel, di sesuaikan.
+    4. Memainkan Css Seperti Contoh Di Bawah.
+    5. Masukan Javascript pada contoh dibawah ---->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabs Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Afacad', sans-serif;
+    }
+
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+
+    /* --- Kunci Css ---*/
+    .tab-content {
+        display: none;
+    }
+
+    .tab-links.first {
+        background: #635985;
+    }
+
+    .tab-content.first {
+        display: block;
+    }
+</style>
+
+<body>
+
+    <section>
+        <div class="main-container">
+            <h1 class="text-4xl font-semibold text-[#E3651D] mb-6">
+                Tabs
+                <span class="text-[#161A30]">Project</span>
+            </h1>
+
+            <div class="tabsContainer bg-[#635985] rounded-sm">
+                <div class="flex justify-between bg-[#735F32] rounded-sm cursor-pointer">
+                    <button class="tab-links first p-2 text-white w-full" data-id="step1">
+                        Step 1
+                    </button>
+                    <button class="tab-links p-2 text-white w-full" data-id="step2">
+                        Step 2
+                    </button>
+                    <button class="tab-links p-2 text-white w-full" data-id="step3">
+                        Step 3
+                    </button>
+                </div>
+
+                <div>
+                    <div id="step1" class="tab-content first p-3 text-white">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia quos optio cum
+                            reprehenderit sequi iure, alias dolores odit id ad ducimus inventore provident unde culpa.
+                            Sed dolores velit ut voluptatum!</p>
+                    </div>
+                    <div id="step2" class="tab-content p-3 text-white">
+                        <p>adipisicing elit. Mollitia quos optio cum
+                            reprehenderit sequi iure, alias dolores odit id ad ducimus inventore provident unde culpa.
+                            Sed dolores velit ut voluptatum!</p>
+                    </div>
+                    <div id="step3" class="tab-content p-3 text-white ">
+                        <p>Mollitia quos optio cum
+                            reprehenderit sequi iure, alias dolores odit id ad ducimus inventore provident unde culpa.
+                            Sed dolores velit ut voluptatum!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<script>
+    const tabsContainer = document.querySelector(".tabsContainer")
+    const tabLinks = document.querySelectorAll(".tab-links");
+    const tabContent = document.querySelectorAll(".tab-content");
+
+    tabsContainer.addEventListener("click", function (e) {
+        const id = e.target.dataset.id;
+        if (id) {
+
+            // remove selected from other buttons
+            tabLinks.forEach(function (btn) {
+                btn.classList.remove("first");
+            });
+            e.target.classList.add("first");
+
+            // hide other articles
+            tabContent.forEach(function (article) {
+                article.classList.remove("first");
+            });
+
+            const element = document.getElementById(id);
+            element.classList.add("first");
+        }
+    });
+</script>
+
+</html>

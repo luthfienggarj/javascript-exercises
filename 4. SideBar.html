@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SideBar</title>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        padding: 0;
+        margin: 0;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    nav {
+        justify-content: space-between;
+        display: block;
+        font-size: 15px;
+        background-color: navy;
+        color: #fff;
+        width: 20%;
+        height: 100%;
+        position: fixed;
+        align-items: center;
+        text-align: center;
+        transition: 1s;
+    }
+
+    .fa-solid {
+        margin-top: 40px;
+        font-size: 28px;
+    }
+
+    .fa-x {
+        position: absolute;
+        left: 79%;
+        top: -5%;
+        font-size: 19px;
+        margin-bottom: 25px;
+        cursor: pointer;
+    }
+
+    nav ul {
+        display: block;
+        cursor: pointer;
+        transition: transform 1s ease-out;
+    }
+
+    nav ul li {
+        list-style: none;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        gap: 30px;
+        border: 2px solid #fff;
+        border-right: 0px solid transparent;
+        padding: 25px;
+        transition: 0.4s;
+        position: relative;
+    }
+
+    nav ul li:nth-child(1) {
+        margin-top: 50px;
+    }
+
+    nav ul li:hover {
+        border-left: 10px solid #ff2800;
+        color: #ff2800;
+        font-weight: bolder;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    section {
+        margin-left: 28%;
+        transition: 1s;
+        max-width: 1400px;
+    }
+
+    section p {
+        line-height: 30px;
+    }
+
+    #home,
+    #about,
+    #contact,
+    #blog {
+        margin-bottom: 4rem;
+    }
+
+    .hamburger {
+        position: fixed;
+        top: -5%;
+        left: 21%;
+        color: navy;
+        padding: 4px;
+        transition: 1s;
+    }
+
+    .hamburger .fa-solid {
+        font-size: 34px;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <header>
+        <nav id="nav">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <i class="fa-solid fa-x" id="closeIcon" onclick="CloseMenu()"></i>
+            <ul>
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+                <li>
+                    <a href="#blog">Blog</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hamburger">
+        <i class="fa-solid fa-qrcode" id="hamburger" onclick="OpenMenu()"></i>
+    </div>
+
+    <div class="allSection" id="allSection">
+        <section id="home">
+            <h3>Home</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+        </section>
+
+        <section id="about">
+            <h3>About</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+        </section>
+
+        <section id="contact">
+            <h3>Contact</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+        </section>
+
+        <section id="blog">
+            <h3>Blog</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, ullam nostrum, nisi asperiores voluptas
+                amet
+                atque odit, distinctio optio sit alias repellendus. In excepturi corporis sed aliquam atque iusto
+                facilis?
+            </p>
+        </section>
+    </div>
+</body>
+
+<script>
+    let Navbar = document.getElementById("nav");
+    let Close = document.getElementById("closeIcon")
+    let Hamburger = document.getElementById("hamburger");
+    let Section = document.getElementById("allSection");
+
+    // Open CLose Menu
+    function OpenMenu() {
+        Navbar.style.left = "0"
+        Hamburger.style.marginLeft = "0";
+        Section.style.marginLeft = "0"
+    }
+
+    function CloseMenu() {
+        Navbar.style.left = "-500%";
+        Hamburger.style.marginLeft = "-300px"
+        Section.style.marginLeft = "-500px"
+    }
+
+</script>
+
+</html>

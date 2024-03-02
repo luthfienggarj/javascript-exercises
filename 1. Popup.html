@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Example</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 15px;
+    }
+
+    div {
+        margin: 15px;
+        padding: 15px;
+        background-color: aliceblue;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 10px;
+        border: 1px solid #ff2800;
+    }
+
+    div p {
+        margin-bottom: 15px;
+    }
+
+    div button {
+        padding: 10px;
+        border: 2px solid navy;
+        font-size: 15px;
+        outline: 0;
+        background-color: #ff2800;
+        color: #fff;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    /* Modal */
+    .modal-container {
+        margin: 15px;
+        padding: 15px;
+        background-color: #ff2800;
+        outline: 0;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 15px;
+        color: #fff;
+        
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .modal-container button {
+        background-color: #fff;
+        color: #ff2800;
+        border: 1px solid transparent;
+        padding: 10px;
+        font-size: 15px;
+        outline: 0;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+    }
+
+    .modal-container p {
+        margin-bottom: 15px;
+    }
+
+    .modal-container::backdrop {
+        background: lightgray;
+        opacity: .5;
+    }
+</style>
+
+<body>
+
+    <h2>Simple Modal</h2>
+
+    <!-- Container -->
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quo quisquam dolorum. Corporis,
+            incidunt! Rem quisquam et omnis commodi, sed tempore at in ut est corporis numquam laudantium ratione animi.
+        </p>
+        <button id="open">Click Me !</button>
+    </div>
+
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem quo quisquam dolorum. Corporis,
+            incidunt! Rem quisquam et omnis commodi, sed tempore at in ut est corporis numquam laudantium ratione animi.
+        </p>
+    </div>
+
+    <!-- Modal HTML Using Dialog-->
+    <dialog id="Modal" class="modal-container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo mollitia sint explicabo a et amet aperiam rerum
+        </p>
+        <button id="close">Close</button>
+    </dialog>
+
+</body>
+
+<script>
+
+    const MainModal = document.getElementById("Modal");
+    const OpenModal = document.getElementById("open");
+    const CloseModal = document.getElementById("close");
+
+    OpenModal.addEventListener('click', () => {
+        MainModal.showModal()
+    })
+
+    CloseModal.addEventListener('click', () => {
+        MainModal.close()
+    })
+
+
+</script>
+
+</html>

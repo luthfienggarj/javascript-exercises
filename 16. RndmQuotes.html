@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Montserrat;
+    }
+</style>
+
+<body>
+    <section class="max-w-[1200px]">
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            <div class="flex justify-between mb-6">
+                <h2 class="text-3xl font-semibold">Quotes</h2>
+                <i class="fa-solid fa-quote-right text-2xl"></i>
+            </div>
+            <div>
+                <p id="text" class="font-light mb-1">"Lorem lorem lorem Lorem lorem lorem Lorem lorem lorem"</p>
+                <p id="author" class="mb-3 font-semibold">- Mark</p>
+                <p class="mb-9">Made By <span class="text-yellow-600 font-semibold">Luthfi</span></p>
+                <button id="btn" class="mb-3 pt-2 pb-2 pr-3 pl-3 rounded-lg bg-yellow-600 text-white font-semibold hover:bg-yellow-500">
+                    Random
+                </button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+    const quotes = [
+        {
+            id: '1',
+            txt: 'Do not let your difficulties fill you with anxiety, after all it is only in the darkest nights that stars shine more brightly',
+            aut: 'Ali bin Abi Thalib',
+        },
+        {
+            id: '2',
+            txt: 'Conquer yourself, and you will conquer the world.',
+            aut: 'Genghis Khan',
+        },
+        {
+            id: '3',
+            txt: 'Don’t depend too much on anyone in this world because even your own shadow leaves you when you are in darkness',
+            aut: 'Taqî ad-Dîn Aḥmad ibn Taymiyyah',
+        },
+        {
+            id: '4',
+            txt: 'The study of philosophy is not that we may know what men have thought, but what the truth of things is',
+            aut: 'Thomas Aquinas',
+        },
+        {
+            id: '5',
+            txt: 'Persons would lead a most happy life if from their vocabulary they removed two words: mine and yours.',
+            aut: 'Saint Aelred',
+        },
+        {
+            id: '6',
+            txt: 'hose of us who kill will be ghazis; those of us who die will be martyrs',
+            aut: 'Murad II',
+        },
+        {
+            id: '7',
+            txt: 'Never interrupt your enemy when he is making a mistake.',
+            aut: 'Napoleon Bonaparte',
+        },
+        {
+            id: '8',
+            txt: 'He who conquers himself is the mightiest warrior.',
+            aut: 'Confucius',
+        },
+        {
+            id: '9',
+            txt: 'A wise ruler does not judge by appearances, but by actions.',
+            aut: 'Tokugawa Ieyasu',
+        },
+        {
+            id: '10',
+            txt: 'Those who seek death shall live. Those who seek life shall die.”',
+            aut: 'Admiral Yi Sun-sin',
+        },
+    ]
+    
+    const text = document.getElementById("text");
+    const author = document.getElementById("author");
+    const btn = document.getElementById("btn");
+    let currentItem = 0;
+
+    // Load
+    window.addEventListener("DOMContentLoaded", () => {
+        showQuotes(currentItem)
+    })
+
+    // Show
+    function showQuotes(quo) {
+        const item = quotes[quo]
+        text.textContent = '"' + item.txt + '"';
+        author.textContent = '- ' + item.aut;
+    }
+
+    // Random Button
+    btn.addEventListener('click', () => {
+        currentItem = Math.floor(Math.random() * quotes.length);
+        console.log(currentItem);
+        showQuotes(currentItem)
+    })
+
+</script>
+</html>

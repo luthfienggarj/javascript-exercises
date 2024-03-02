@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Calculate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        border: 2px solid #000;
+        padding: 10px;
+        border-radius: 10px;
+    }
+</style>
+
+<body>
+    <section>
+        <div class="mb-10 text-center">
+            <h4 class="text-2xl">Date Calculate</h4>
+            <form action="">
+                <input 
+                type="date" 
+                id="date" 
+                class="mb-1 mt-2 borde outline outline-offset-1 outline-1 rounded-sm p-1">
+            </form>
+        </div>
+
+        <button onclick="calculate()"
+        class="bg-[#1DB954] text-center text-white w-full p-1 rounded-xl">
+            Calculate Age
+        </button>
+
+        <h6 class="mt-2">Your Age Is : <span id="age" class="font-semibold underline underline-offset-4"></span></h6>
+    </section>
+</body>
+
+<script>
+    const date = document.getElementById("date");
+    const age = document.getElementById("age");
+
+    function calculate() {
+        const birthDate = new Date(date.value);
+        const today = new Date();
+
+        const ageInMilisecond = today - birthDate;
+        const ageInYear = new Date(ageInMilisecond).getFullYear() - 1970
+        age.textContent = ageInYear;
+    }
+</script>
+
+<script>
+    function Fetching() {
+    fetch("https://api.mockaroo.com/api/5a5ff980?count=2&key=8d282330")
+        .then(response => response.json())
+        .then(data => {
+
+            // Map Data
+            const mappingData = data.map(item => Math.sqrt(item.numbers))
+        })
+        .catch(error => { console.log("Data Tidak Berhasil Ditarik"), error })
+}
+Fetching();
+</script>
+</html>

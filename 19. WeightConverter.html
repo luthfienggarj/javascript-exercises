@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weight Converter</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/b818ade590.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400;0,500;0,600;1,400&display=swap"rel="stylesheet">
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Afacad', sans-serif;
+    }
+    section {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+    }
+</style>
+
+<body>
+    <section>
+        <h1 class="text-2xl mb-3 text-orange-400 font-semibold text-center">
+            Weight Converter
+        </h1>
+        <div>
+            <form class="mb-4">
+                <label class="text-xl font-semibold mr-2">Pounds : </label>
+                <input
+                id="inputWeight"
+                type="number"
+                class="outline outline-2 outline-offset-2 outline-orange-500 rounded-sm">
+            </form>
+
+            <button id="convertBtn" class="bg-orange-400 text-xl rounded-lg pt-1 pb-1 pr-2 pl-2 mb-4 text-center text-white font-semibold">
+                Convert
+            </button>
+
+            <p class="text-xl font-semibold">
+                Your Weight In Kg Is : 
+                <span id="result" class="underline"></span>
+            </p>
+        </div>
+    </section>
+</body>
+
+<script>
+    const inputWeight = document.getElementById("inputWeight");
+    const result = document.getElementById("result");
+    const convertBtn = document.getElementById("convertBtn");
+    let formula = 0.5;
+
+    convertBtn.addEventListener("click", function () {
+        let input = parseFloat(inputWeight.value);
+
+        if (!isNaN(input)) {
+            let resultWeight = input * formula;
+            result.textContent = `${resultWeight} Kg`;
+        } else {
+            result.textContent = "Masukan Angka !"
+        }
+    })
+</script>
+
+</html>
